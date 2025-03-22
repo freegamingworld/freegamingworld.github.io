@@ -1,0 +1,118 @@
+/* Tile�� �ִϸ��̼� ���� ���� */
+
+.example { /* �ִϸ��̼� �ߺ� */
+	animation-name				: tile_down_up;	/*�ִϸ��̼� �̸� */
+	animation-duration			: 1.0s;				/*�ִϸ��̼� ����ð� 0, 3s, 1.5s, 300ms �⺻ �� 0�� �ִϸ��̼� ������� ����.*/
+	animation-iteration-count	: 0;					/*�ִϸ��̼� �ݺ� Ƚ�� ����, 0�̸� 1ȸ��, ���: ������ Ƚ�� ǥ��.  Ƚ����ŭ �ִϸ��̼� �ݺ� ���� �� ����. infinite: ���� �ݺ�.*/
+	animation-timing-function	: linear;				/*�ִϸ��̼� ���� �ӵ� linear | ease | ease-in | ease-out | ease-in-out | step-start | step-end | steps(int,start|end) | cubic-bezier(n,n,n,n) �� �Ѱ��� ���� ����*/
+	animation-delay					: 0s;					/*�ִϸ��̼� ���� �ð� 0s, 0ms, ������: ���� ���� ��� �ִϸ��̼� ����.*/
+	animation-direction			: normal;			/*�ִϸ��̼� ��� ����  normal: ������ ��� reverse: ������ ��� alternate: ������� ���������� �� ���� ������ ���(�� ���� ����) alternate-reverse: ������� ���������� �� ���� ������ ���(������ ����)*/
+	animation-play-state			: paused;			/*�ִϸ��̼��� �ʱ� ���� ���¸� ����.  paused, running*/
+	animation-fill-mode			: none;				/*�ִϸ��̼� ���� ��, ���� �� ������ CSS ��Ÿ���� ����. "none"�� ����� CSS ��Ÿ���� �����ϸ�, �� �ܿ��� Ű������ �ִϸ��̼��� CSS ��Ÿ���� ������ none forwards backwards both*/
+	/*
+		none: �⺻ ��. �ִϸ��̼� ���� �ƴ� ���, ����� CSS ��Ÿ���� ������.
+		forwards: �ִϸ��̼� ���� �ƴ� ���, �ִϸ��̼� ������ Ű�������� CSS ��Ÿ���� ���� ��.
+		backwards: �ִϸ��̼� ���� �ƴ� ���, ù ��° �ִϸ��̼� Ű�������� CSS ��Ÿ���� ���� ��.(���� �ð� ����)
+		both: �ִϸ��̼� ���� ������ ù ��° �ִϸ��̼� Ű�������� �����ϸ�, ���� �Ŀ��� ������ Ű������ �ִϸ��̼��� CSS ��Ÿ���� ������. "none" ���� �ٸ�.
+		"none" �� "backwards" �Ӽ� ���� �ִϸ��̼� ���� �ƴ� ��� �ٸ� ȭ���� ǥ���� �� �����Ƿ� �����ؾ� ��.
+	*/
+}
+																																				 
+
+.tile_down_up { /* Ÿ�� ������ �������� �ö���� */
+	animation-name				: tile_down_up;	
+	animation-duration			: 0.15s;
+	animation-iteration-count	: 1;	
+	animation-timing-function	: linear;	
+	animation-delay					: 0s;				
+	animation-direction			: normal;		
+	animation-play-state			: running;		
+	animation-fill-mode			: none;			
+}
+@keyframes tile_down_up
+{
+	0%
+	{
+		transform : translateY(0px);
+	}
+	40%	
+	{
+		transform : translateY(6px);
+	}
+	80%	
+	{
+		transform : translateY(-1px);
+	}
+	100%	
+	{
+		transform : translateY(0px);
+	}
+}
+
+.tile_up { /* Ư�� Ÿ���� ���� �ø��� */
+	animation-name				: tile_up;	
+	animation-duration			: 0.6s;
+	animation-iteration-count	: 1;	
+	animation-timing-function	: linear;	
+	animation-delay					: 0s;				
+	animation-direction			: normal;		
+	animation-play-state			: running;		
+	animation-fill-mode			: forwards; /* �ö� ���¿��� �ӹ����� �Ѵ�.  none �ϸ� �������� ������ */			
+}
+@keyframes tile_up
+{
+	0%
+	{
+		transform : translateY(0px);
+	}
+	100%	
+	{
+		transform : translateY(-18px);
+	}
+}
+
+.tile_dim { /*Ư�� Ÿ�� tile up�ǰ� ������ Ÿ���� dim ó�� �Ҷ� dimó�� */
+	/*opacity : 0.3;	*/
+	animation-name				: tile_dim;	
+	animation-duration			: 0.6s;
+	animation-iteration-count	: 1;	
+	animation-timing-function	: linear;	
+	animation-delay					: 0s;				
+	animation-direction			: normal;		
+	animation-play-state			: running;		
+	animation-fill-mode			: forwards; /* �ö� ���¿��� �ӹ����� �Ѵ�.  none �ϸ� �������� ������ */	
+}
+@keyframes tile_dim
+{
+	0%
+	{
+		opacity : 1.0;
+	}
+	100%	
+	{
+		opacity : 0.3;
+	}
+}
+
+.tile_show { /*ó�� Ÿ�� �����ͼ� �ڸ� ���  :  �̰� �ϴϱ� , �̵��Ҷ� �� tile �ܷ� �ִϸ��̼��� �ȵ�... ��...  �׷��� ��� ����.*/
+	animation-name				: tile_show;	
+	animation-duration			: 0.8s;
+	animation-iteration-count	: 1;	
+	animation-timing-function	: ease-in-out;	
+	animation-delay					: 0s;				
+	animation-direction			: normal;		
+	animation-play-state			: running;		
+	animation-fill-mode			: none;			
+}
+/* Ÿ�� ��Ÿ���� �ִϸ��̼� */
+@keyframes tile_show 
+{
+	0%
+	{
+		transform : translateY(-1080px);
+	}
+	100%	
+	{
+		transform : translateY(0px);
+	}
+}

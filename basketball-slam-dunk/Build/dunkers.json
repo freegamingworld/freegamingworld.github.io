@@ -1,0 +1,12 @@
+{
+"companyName": "FreezeNova",
+"productName": "Dunkers",
+"dataUrl": "dunkers.data.unityweb",
+"asmCodeUrl": "dunkers.asm.code.unityweb",
+"asmMemoryUrl": "dunkers.asm.memory.unityweb",
+"asmFrameworkUrl": "dunkers.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"splashScreenStyle": "Dark",
+"backgroundColor": "#222C36",
+"cacheControl": {"dataUrl": "must-revalidate"}
+}

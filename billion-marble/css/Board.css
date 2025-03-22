@@ -1,0 +1,30 @@
+/* Board�� �ִϸ��̼� ���� ���� */
+
+
+@keyframes move_up_player12
+{
+	0%		{top : 1080px;}
+	100%	{top : 926px;}
+}
+
+@keyframes move_right_player3_online
+{
+	0%		{left : -494px;}
+	100%	{left : 0px;}
+}
+@keyframes move_right_player3_offline
+{
+	0%		{left : -154px;}
+	100%	{left : 0px;}
+}
+@keyframes move_left_player4_online
+{
+	0%		{left : 1920px;}
+	100%	{left : 1431px;}
+}
+@keyframes move_left_player4_offline
+{
+	0%		{left : 1581px;}
+	100%	{left : 1431px;}
+}
+

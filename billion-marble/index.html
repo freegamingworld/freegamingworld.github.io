@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<!-- 캐시방지를 위해 from dblee -->
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+
+
+	<!-- meta name="viewport" content="width=1280" -->
+    <title>BILLION MARBLE</title>
+
+    <link rel="stylesheet" href="css/Main.css" type="text/css">
+    <link rel="stylesheet" href="css/Board.css" type="text/css">
+    <link rel="stylesheet" href="css/Tile.css" type="text/css">
+    <link rel="stylesheet" href="css/Joinnum.css" type="text/css">
+    <script type="text/javascript" src = "javascript/jquery-3.4.1.min.js"></script>
+    
+    <script type="text/javascript" src="javascript/lib/TweenMax.min.js"></script>
+	<script type="text/javascript" src="javascript/lib/kr_input_with_mouse.js"></script>
+	<script type="text/javascript" src="javascript/lib/aes.js"></script>
+	
+	<script type="text/javascript" src = "./platform.js"></script> <!-- 각 플랫폼 명을 기재 -->
+
+	<!-- AZE향 하면서  local min 사용함 -->
+	<script type="text/javascript" src = "min/BM_min_20230817_2030.js"></script>
+<!--
+		<script type="text/javascript" src = "javascript/util_Language.js"></script>
+		<script type="text/javascript" src = "javascript/util_Keymap.js"></script>
+		<script type="text/javascript" src = "javascript/util_Function.js"></script>
+		<script type="text/javascript" src = "javascript/util_Global.js"></script>	 
+		<script type="text/javascript" src = "javascript/util_ChangeScene.js"></script>
+		<script type="text/javascript" src = "javascript/util_PHP.js"></script>
+		<script type="text/javascript" src = "javascript/util_MsgQueue.js"></script>
+		<script type="text/javascript" src = "javascript/util_WebSocket.js"></script>
+		<script type="text/javascript" src = "javascript/util_Sound.js"></script>
+		<script type="text/javascript" src = "javascript/util_WebAudio.js"></script>
+		<script type="text/javascript" src = "javascript/util_Balance.js"></script>
+		<script type="text/javascript" src = "javascript/util_Storage.js"></script>
+
+		<script type="text/javascript" src = "javascript/Main.js"></script>
+		<script type="text/javascript" src = "javascript/S_logo.js"></script>
+		<script type="text/javascript" src = "javascript/S_mainmenu.js"></script>
+
+		<script type="text/javascript" src = "javascript/S_game_enum.js"></script>	
+		<script type="text/javascript" src = "javascript/S_pvp_ranking.js"></script>
+		<script type="text/javascript" src = "javascript/S_pvp_matching.js"></script>
+		<script type="text/javascript" src = "javascript/S_setting.js"></script>
+
+		<script type="text/javascript" src = "javascript/S_game.js"></script>			 
+		
+		<script type="text/javascript" src = "javascript/S_game_popup_myturn.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_buycountry.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_sellcountry.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_sellzasan.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_sellabs.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_joinnum.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_selectchar.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_resort.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_angel.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_island.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_goto.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_chance.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_freepass.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_invention.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_takeover.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_popup_setting.js"></script>
+
+		<script type="text/javascript" src = "javascript/S_game_board_define.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_board.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_board_text.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_board_imagemap.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_board_arrive.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_preload.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_user.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_player.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_mouse_n_key.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_dice.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_dice_gage.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_char.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_sun.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_economy.js"></script>
+
+		<script type="text/javascript" src = "javascript/S_game_selecttile.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_selecttile_abs.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_selectline.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_remaintime.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_cal.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_ani.js"></script>
+		<script type="text/javascript" src = "javascript/S_game_pvp.js"></script>
+
+		<script type="text/javascript" src = "javascript/S_gameresult.js"></script>
+		<script type="text/javascript" src = "javascript/S_help.js"></script>
+		<script type="text/javascript" src = "javascript/S_popupyn.js"></script>	
+		<script type="text/javascript" src = "javascript/S_pay_passyn.js"></script>	
+		<script type="text/javascript" src = "javascript/S_input_pay.js"></script>			
+		<script type="text/javascript" src = "javascript/S_error_popup.js"></script>
+-->
+	</head>
+
+	<body onload="Main.on_load();" onunload="Main.on_unload();" onKeyDown="Main.key_down();" scroll="no" ondragstart="return false" draggable="false" onselectstart="return false">
+
+		<img id="SafeZone">
+		<div id="div_body"> 
+			<!-- Main.maketag()에서 추가 함. -->
+		</div>
+		<div id="S_ERROR_POPUP_div"></div>
+
+		<!-- div id="message"></div -->
+		<div id="MEM_TEST"></div>
+	</body>
+</html>

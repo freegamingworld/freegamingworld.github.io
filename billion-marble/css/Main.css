@@ -1,0 +1,577 @@
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+/* �������� ��Ʈ : ���� -- �̹� ��Ÿ�� ������Ʈ������ ������� ����.*/
+/*
+@font-face{
+	font-family: 'NanumBarunGothicBold'; 
+	src: url("../font/NanumBarunGothicBold.ttf") format("truetype"); 
+}
+
+@font-face{ 
+	font-family: 'RixYeoljeongdoRegular'; 
+	src: url("../font/RixYeoljeongdoRegular.ttf") format("truetype"); 
+}
+*/
+
+
+@font-face{
+	font-family: 'SEBANGGothicBold'; 
+	src: url("../font/SEBANGGothicBold.ttf") format("truetype"); 
+}
+/*
+@font-face{
+	font-family: 'SeoulNamsanEB'; 
+	src: url("../font/08SeoulNamsanEB.ttf") format("truetype"); 
+}
+*/
+
+/* Layout */
+
+body
+{
+	width: 1920px;
+	height: 1080px;
+	/*background: gray;*/
+	/*background:url("../image/2_logo/BUSIDOL_LOGO1280x720x75p.png") no-repeat 0 0;*/ /* SKB�� ��츸 �̷��� �Ѵ�. */
+	overflow:hidden;
+/*	font-family:'NanumGothicBold',sans-serif;*/
+/*	font-family:'SeoulNamsanEB',sans-serif;*/
+
+/*	font-family:'NanumBarunGothicBold',sans-serif;*/
+/*	font-family:'RixYeoljeongdoRegular',sans-serif;*/
+	font-family:'SEBANGGothicBold',sans-serif;
+
+
+
+/*	image-rendering: -webkit-optimize-contrast;*/
+}
+
+/* �� �÷��̾��� ���� ��Ÿ���� �޽��� �ڽ��� */
+.player_message_box
+{
+	left : 0px;
+	top : -80px;
+	width : 100%;
+	height : 85px;
+	position: absolute;
+	opacity : 0.7;
+	background : black;
+	display : none;
+
+	
+	line-height : 85px;
+	font-size  : 25px;
+	text-align : center;
+	color			:#ffffff;
+}
+
+/* ť�� ������ ���� */
+.stage {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.cube {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+}
+
+.cube > div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    line-height: 100px;
+    /*opacity: .5;*/
+}
+
+.front {
+    transform: translateZ(50px);
+	background: url("../image/game/dice/dice1.png");
+}
+.back {
+    transform: rotateY(180deg) translateZ(50px);
+   	background: url("../image/game/dice/dice2.png");
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(50px);				   	
+	background: url("../image/game/dice/dice3.png");
+}
+.right {
+    transform: rotateY(90deg) translateZ(50px);
+	background: url("../image/game/dice/dice4.png");
+}
+
+.top {
+    transform: rotateX(-90deg) translateZ(50px);
+   	background: url("../image/game/dice/dice5.png");
+}
+.btm {
+    transform: rotateX(90deg) translateZ(50px);
+	background: url("../image/game/dice/dice6.png");
+}
+
+.cube {
+  /*  animation: rotate 10s linear infinite; */ /* 10s �������� ������ ȸ���Ѵ�. */
+	/*animation: rotate 5s infinite forwards ���α׷� ������ �ش�.*/
+}
+@keyframes rotate {
+    100% { transform: rotate3d(1, 1, 1, 360deg); }
+}
+
+/**************** dice **************/
+.dice {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  /*transform: translateZ(-50px) rotateY(-45deg) rotateX(-45deg);*/
+ 
+  /*transform: rotateX(-50deg) rotateY(-40deg) ;*/  /*6 */
+  /*transform: rotateX(-50deg) rotateY(-40deg) rotateZ(90deg);*/	/*5 */
+  /*transform: rotateX(-50deg) rotateY(-40deg) rotateZ(180deg);*/  /*1 */
+  transform: rotateX(40deg) rotateY(-0deg) rotateZ(-50deg);  /*4 */
+  /*transform: rotateX(-50deg) rotateY(-130deg) rotateZ(-90deg);*/  /*3 */
+  /*transform: rotateX(40deg) rotateY(180deg) rotateZ(40deg);*/  /*2*/
+ /* transform: rotateX(134deg) rotateY(180deg) rotateZ(40deg);*/
+  transition: transform 0.8s;
+}
+
+.red_dice {
+  height: 75px;
+  width: 75px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(40deg) rotateY(-0deg) rotateZ(-50deg);  /*4 */
+  transition: transform 0.8s;
+}
+
+.panel1234 {
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  perspective: 400px;
+  position: absolute;
+  left: 910px; /*50%*/
+  top: 648px; /*60%*/
+  /*transform: translate(-50%,-50%); */ /*�̰� �ϴϱ� ��� ���ĵǳ�.*/
+  /*animation: move_dice 1s ease-in;*/
+}
+
+#panel1 {
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  perspective: 600px;
+  position: absolute;
+  left: 9100px; /*50%*/
+  top: 6480px; /*60%*/
+}
+#panel2 {
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  perspective: 600px;
+  position: absolute;
+  left: 8100px; /*50%*/
+  top: 6480px; /*60%*/
+}
+#panel3 {
+  border-radius: 10px;
+  width: 75px;
+  height: 75px;
+  perspective: 600px;
+  position: absolute;
+  left: 7100px; /*50%*/
+  top: 6480px; /*60%*/
+}
+
+.side {
+  position: absolute;
+  background-color: black;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  line-height: 100px;
+}
+.red_side {
+  position: absolute;
+  background-color: black;
+  width: 75px;
+  height: 75px;
+  border-radius: 10px;
+  line-height: 75px;
+}
+
+/* ��� �ֻ��� */
+.one		{background: url("../image/game/dice/dice1.png");transform: rotateX(-90deg) translateZ(50px);}
+.two		{background: url("../image/game/dice/dice2.png");transform: rotateY(180deg) translateZ(50px);}
+.three	{background: url("../image/game/dice/dice3.png");transform: rotateY(90deg) translateZ(50px);}
+.four		{background: url("../image/game/dice/dice4.png");transform: translateZ(50px);  }
+.five		{background: url("../image/game/dice/dice5.png");transform: rotateY(-90deg) translateZ(50px);}
+.six		{background: url("../image/game/dice/dice6.png");transform: rotateX(90deg) translateZ(50px);}
+
+/* ������ �ֻ��� */
+.red_one		{background: url("../image/game/dice/red_dice1.png");transform: rotateX(-90deg) translateZ(37px);}
+.red_two		{background: url("../image/game/dice/red_dice2.png");transform: rotateY(180deg) translateZ(37px);}
+.red_three		{background: url("../image/game/dice/red_dice3.png");transform: rotateY(90deg) translateZ(37px);}
+.red_four		{background: url("../image/game/dice/red_dice4.png");transform: translateZ(37px);  }
+.red_five		{background: url("../image/game/dice/red_dice5.png");transform: rotateY(-90deg) translateZ(37px);}
+.red_six		{background: url("../image/game/dice/red_dice6.png");transform: rotateX(90deg) translateZ(37px);}
+
+.dice_throw{
+    animation: dice_from_to 1s linear forwards;
+    animation-delay: 1s;
+}
+
+@keyframes move_dice 
+{
+	0% 
+	{
+		transform: translateX(900px);	  		
+	}
+    100% 
+	{
+		transform: translateX(0px);
+	}
+}
+
+#notice_box{
+    position: absolute;
+    top: 300px;left:400px;
+    width: 1320px;
+    height: 200px;
+    background-color: cornflowerblue;
+    border: 1px solid #000;
+	font-size: 30px;
+	text-align: center;
+}
+
+/* Ʈ���ƽ� �׽��� */
+#box{
+    position: absolute;
+    top: 310px;left: 110px;
+    width: 250px;
+    height: 50px;
+    background-color: cornflowerblue;
+    border: 1px solid #000;
+}
+
+/* �ֻ��� �귿 ����� */
+#GA_dice_gage_clock {  
+	animation-name: dice_gage;
+	animation-duration	: 5.4s;		/* 1.4s���� �Ǿ�� ��.*/
+	animation-iteration-count : infinite;
+	animation-timing-function:linear;
+	animation-direction : normal;
+	animation-fill-mode : none;
+}
+@keyframes dice_gage 
+{
+	from 
+	{
+		transform	: rotate(0deg);
+	}
+    to
+	{
+		transform : rotate(720deg);
+	}
+}
+
+/* turn ǥ���� �� �Ʒ� ������ */
+.turn_updown {
+	animation-name: turn_updown;
+	animation-duration	: 0.8s;
+	animation-iteration-count : infinite;
+	animation-timing-function:linear;
+	animation-direction : alternate;
+	animation-fill-mode : none;
+	animation-play-state	: running;		
+}
+@keyframes turn_updown 
+{
+	0% 
+	{
+		transform	: translateY(6px);
+	}
+    100%
+	{
+		transform : translateY(-50px);
+	}
+}
+
+/* ������ ���� ���� �ð� �پ� ��� �ϱ� myturn_remaintime  -- ��Ŵ� ������� �ʰ� �Ʒ� 2�� �����.*/
+.myturn_remaintime {
+	animation-name: remaintime;
+	animation-duration	: 150.0s;
+	animation-iteration-count : 1;
+	animation-timing-function:linear;
+	animation-direction : normal;
+	animation-fill-mode : forwards;
+	animation-play-state	: running;		
+}
+@keyframes remaintime
+{
+	0%		{width : 1920px;}
+    100%	{width : 0px;}
+}
+
+/*������ user */
+.myturn_remaintime14 {
+	animation-name: remaintime_14;
+	animation-duration	: 20.0s;  /* ���� 15.0s  �׽�Ʈ�� ���� �� �ָ� ��. --> 20�ʷ� ������(LG��û)*/
+	animation-iteration-count : 1;
+	animation-timing-function:linear;
+	animation-direction : normal;
+	animation-fill-mode : forwards;
+	animation-play-state	: running;		
+}
+@keyframes remaintime_14
+{
+	0%		{left : 196px;}
+    100%	{left : 489px;}
+}
+/*���� user */
+.myturn_remaintime23 {
+	animation-name: remaintime_23;
+	animation-duration	: 20.0s;  /* ���� 15.0s  �׽�Ʈ�� ���� �� �ָ� ��. --> 20�ʷ� ������(LG��û)*/
+	animation-iteration-count : 1;
+	animation-timing-function:linear;
+	animation-direction : normal;
+	animation-fill-mode : forwards;
+	animation-play-state	: running;		
+}
+@keyframes remaintime_23
+{
+	0%		{left : 5px;}
+    100%	{left : -288px;}
+}
+
+/** �˾� key frame ���� **/
+/* popup1 : ���� Ȯ�� 1.05�� �Ǵٰ� 1.0���  */
+.popup1 {
+	animation-name				: popup1;
+	animation-duration			: .3s;
+	animation-iteration-count	: 1;
+	animation-timing-function	:ease-in;
+	animation-direction			: normal;
+	animation-fill-mode			: backwards;
+	animation-play-state			: running;		
+}
+@keyframes popup1 
+{
+    from {-webkit-transform: scale(0.10); transform: scale(0.10);opacity: 0;}
+    90% {-webkit-transform: scale(1.05); transform: scale(1.05);opacity: 1;}
+	to		{-webkit-transform: scale(1.00); transform: scale(1.00);}
+}
+
+/* user 3�� ���� pop�̴�.  ��ĵ�忡�� ���*/
+.popup3 {
+	animation-name				: popup3;
+	animation-duration			: .3s;
+	animation-iteration-count	: 1;
+	animation-timing-function	:ease-in;
+	animation-direction			: normal;
+	animation-fill-mode			: forwards;
+	animation-play-state			: running;		
+}
+@keyframes popup3 
+{
+    from {transform: scale(0.10) rotate(90deg);opacity: 0;}
+    90% {transform: scale(1.05) rotate(90deg); opacity: 1;}
+	to		{ transform: scale(1.00) rotate(90deg);}
+}
+/* user 4�� ���� pop�̴�. ��ĵ�忡�� ���*/
+.popup4 {
+	animation-name				: popup4;
+	animation-duration			: .3s;
+	animation-iteration-count	: 1;
+	animation-timing-function	:ease-in;
+	animation-direction			: normal;
+	animation-fill-mode			: forwards;
+	animation-play-state			: running;		
+}
+@keyframes popup4 
+{
+    from {transform: scale(0.10) rotate(-90deg);opacity: 0;}
+    90% {transform: scale(1.05) rotate(-90deg); opacity: 1;}
+	to		{ transform: scale(1.00) rotate(-90deg);}
+}
+
+/*���� ȿ�� �ߵ��� ���ʿ��� �����°� */
+.popup_economy_in {
+	animation-name				: popup_economy_in;
+	animation-duration			: .6s;
+	animation-iteration-count	: 1;
+	animation-timing-function:ease-in;
+	animation-direction			: normal;
+	animation-fill-mode			: backwards;
+	animation-play-state		: running;		
+}
+@keyframes popup_economy_in 
+{
+    from {transform : translateX(-987px);}
+	to		{transform : translateX(0px);}
+}
+.popup_economy_out {
+	animation-name				: popup_economy_out;
+	animation-duration			: .6s;
+	animation-iteration-count	: 1;
+	animation-timing-function:ease-in;
+	animation-direction			: normal;
+	animation-fill-mode			: forwards;
+	animation-play-state		: running;		
+}
+@keyframes popup_economy_out 
+{
+    from {transform : translateX(0px);}
+	to		{transform : translateX(1400px);}
+}
+/* ?(��¦�����˾�) ��Ÿ���� ���ۺ��� ���鼭 Ȯ�� �ȴ�. */ /*������*/
+.popup_chance {
+	animation-name				: popup_chance;
+	animation-duration			: .4s;
+	animation-iteration-count	: 1;
+	animation-timing-function:ease-in;
+	animation-direction			: normal;
+	animation-fill-mode			: backwards;
+	animation-play-state		: running;		
+}
+@keyframes popup_chance /* ������ */
+{
+    from { transform: scale(0.10) rotate(0deg);	opacity: 1;}
+	to		{ transform: scale(1.00) rotate(360deg); opacity: 1;}
+}
+
+/******** ***/
+.dim25 {	 /* dim ó�� 25% */
+	left : 0px;
+	top : 0px;
+	width : 1920px;
+	height : 1080px;
+	background-image : url('../image/common/onepixel_dim25.png');
+	position : absolute;
+}
+.dim70 { /* dim ó�� 70% */
+	left : 0px;
+	top : 0px;
+	width : 1920px;
+	height : 1080px;
+	background-image : url('../image/common/onepixel_dim70.png');
+	position : absolute;
+}
+
+/*�ֻ��� �����̰� �ϱ� : ������ �ֻ����� ���� ���ڰ� ������ �Ѱ��� �ֻ����� ������� �Ѵ�. */
+.dice_blur {
+	animation-name				: dice_blur;
+	animation-duration			: 0.6s;
+	animation-iteration-count	: 1;
+	animation-timing-function	:ease-in;
+	animation-direction			: normal;
+	animation-fill-mode			: forwards;
+	animation-play-state			: running;		
+}
+@keyframes dice_blur
+{
+	0%		{opacity : 1.0;}
+	100%	{opacity : 0.0;}
+}
+
+/*********����޷��̴� �ִϸ��̼� **********/
+@keyframes flag_ani {
+	100% { background-position : -320px 0;}
+}
+
+.blue_flag {
+	width:64px; height: 73px;
+	background: url('../image/game/ui/p_ownflag_blue.png') no-repeat 0 0;
+	background-size: 320px 73px;
+	animation: flag_ani 750ms infinite steps(5);
+}
+.red_flag {
+	width:64px; height: 73px;
+	background: url('../image/game/ui/p_ownflag_red.png') no-repeat 0 0;
+	background-size: 320px 73px;
+	animation: flag_ani 750ms infinite steps(5);
+}
+.yellow_flag {
+	width:64px; height: 73px;
+	background: url('../image/game/ui/p_ownflag_yellow.png') no-repeat 0 0;
+	background-size: 320px 73px;
+	animation: flag_ani 750ms infinite steps(5);
+}
+.green_flag {
+	width:64px; height: 73px;
+	background: url('../image/game/ui/p_ownflag_green.png') no-repeat 0 0;
+	background-size: 320px 73px;
+	animation: flag_ani 750ms infinite steps(5);
+}
+
+/*********��ǥ���� ǥ�� �ִϸ��̼� : �ش� tag GA_roll_goal **********/
+@keyframes roll_goal_left_ani	{	 100% { background-position : -1332px 0;}}
+@keyframes roll_goal_right_ani {	 100% { background-position : -1332px 0;}}
+@keyframes roll_goal_big_ani	{	 100% { background-position : -1440px 0;}}
+
+.roll_goal_left { /* 1,3�� ���� */
+	width:222px; height: 140px;
+	background: url('../image/game/ui/p_roll_goal_left.png') no-repeat 0 0;
+	background-size: 1332px 140px;
+	animation: roll_goal_left_ani 500ms infinite steps(6);
+}
+.roll_goal_right { /* 2,4�� ���� */
+	width:222px; height: 140px;
+	background: url('../image/game/ui/p_roll_goal_right.png') no-repeat 0 0;
+	background-size: 1332px 140px;
+	animation: roll_goal_right_ani 500ms infinite steps(6);
+}
+.roll_goal_big {		/* ���õ��,���ε�,������,��Ŀ�� */
+	width:240px; height: 156px;
+	background: url('../image/game/ui/p_roll_goal_big.png') no-repeat 0 0;
+	background-size: 1440px 140px;
+	animation: roll_goal_big_ani 500ms infinite steps(6);
+}
+
+/**** KT_LOADING�� **�̻��ϰԵ� �̰� ���� �Ʒ��� �������� �۵� �ȵǾ� ���� �ø�.**/ 
+@keyframes kt_loading_ani {
+	100% { background-position : -1488px 0;}
+}
+   
+.kt_loading
+{
+	width:124px;height:118px;
+	background:url("../image/kt/loading_kt.png") no-repeat 0 0;
+	background-size: 1488px 118px;
+	animation: kt_loading_ani 750ms infinite steps(12);
+	left: 898px;
+	top: 481px;
+	position: absolute;
+}
+
+
+/*********�𷡽ð赵�� �ִϸ��̼� **********/
+@keyframes sandclock_ani {
+	100% { background-position : -1000px 0;}
+}
+
+.sandclock {
+	width:200px; height: 200px;
+	background: url('../image/game/ui/p_common_alarm.png') no-repeat 0 0;	
+	background-size: 1000px 200px;
+	animation: sandclock_ani 750ms infinite steps(5);
+} 
+
+
+
+

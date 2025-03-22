@@ -1,0 +1,82 @@
+/* 
+	���ϸ� : joinnum.css 
+	�ϴ��� :
+	   - ��ĵ���鿡�� joinnum���� �����ο������� 
+	     �� ������ ���� ī�� ������ �ִϸ��̼� �Ҷ� �����.
+*/
+
+ .joinnum_container {
+        width: 192px;
+        height: 255px;
+        perspective: 300px;
+    }
+
+
+.joinnum_container .joinnum_item {
+	width: 192px;
+	height: 255px;
+/*	border: 1px solid #828282;*/
+	font-size: 35px;
+	backface-visibility: hidden;/*ī���� �޸��� �Ⱥ��̰� ó��-ī�尡 �������� �޸��� �Ⱥ���*/
+	transition: 0.5s;
+}
+
+.joinnum_container .joinnum_item.joinnum_front {
+	position: absolute;
+	transform: rotateY(0deg);
+}
+
+/*.joinnum_container:hover .joinnum_item.joinnum_front {*/
+/*	transform: rotateY(180deg);*/
+/*}*/
+
+.joinnum_container .joinnum_item.joinnum_back {
+
+	transform: rotateY(-180deg);
+}
+
+/*.joinnum_container:hover .joinnum_item.joinnum_back {*/
+/*	transform: rotateY(0deg);*/
+/*}
+		
+
+/* keyframe ���� */
+@keyframes joinnum_p1 {100% {left : 1550px;	top : 680px;}}
+@keyframes joinnum_p2 {100% {left : 178px;		top : 680px;}}
+@keyframes joinnum_p3 {100% {left : 178px;		top : 195px;}}
+@keyframes joinnum_p4 {100% {left : 1550px;	top : 195px;}}
+
+@keyframes joinnum_p3_weekend {100% {left : 178px;	top : 145px; transform: rotate(90deg);}}
+@keyframes joinnum_p4_weekend {100% {left : 1550px;	top : 145px; transform: rotate(-90deg);}}
+
+.joinnum_p1 { animation: joinnum_p1 0.4s ease-out forwards;}
+.joinnum_p2 { animation: joinnum_p2 0.4s ease-out forwards;}
+.joinnum_p3 { animation: joinnum_p3 0.4s ease-out forwards;}
+.joinnum_p4 { animation: joinnum_p4 0.4s ease-out forwards;}
+
+.joinnum_p3_weekend { animation: joinnum_p3_weekend 0.4s ease-out forwards;}
+.joinnum_p4_weekend { animation: joinnum_p4_weekend 0.4s ease-out forwards;}
+
+/* Ŀ���� �۾����� �ϱ� : ���̼����Ǿ� �ش� ����ڸ� Ŀ���� �۾����� �ϱ�*/
+.joinnum_select_sun {
+	animation-name				: joinnum_select_sun;
+	animation-duration			: 2s;
+	animation-iteration-count	: 1;
+	animation-timing-function	:ease-in;
+	animation-direction			: normal;
+	animation-fill-mode			: backwards;
+	animation-play-state			: running;		
+}
+@keyframes joinnum_select_sun 
+{
+/*    from {-webkit-transform: scale(1.0);	transform: scale(1.0);}*/
+/*    50% {-webkit-transform: scale(1.5);	transform: scale(1.5);}*/
+/*	to		{-webkit-transform: scale(1.0);	transform: scale(1.0);}*/
+
+    0% {opacity: 0;}
+   20% {opacity: 1.0;}
+   40% {opacity: 0.0;}
+   60% {opacity: 1.0;}
+   80% {opacity: 0.0;}
+   100% {opacity: 1.0;}
+}
