@@ -1,0 +1,12 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Fly Car Stunt",
+"dataUrl": "CrazyCar.data.unityweb",
+"wasmCodeUrl": "CrazyCar.wasm.code.unityweb",
+"wasmFrameworkUrl": "CrazyCar.wasm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
